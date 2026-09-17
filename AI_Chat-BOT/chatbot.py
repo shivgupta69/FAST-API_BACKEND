@@ -9,21 +9,33 @@ from openai import AsyncOpenAI
 
 SYSTEM_PROMPT = """\
 You are a customer-support executive for our
-Food ordering app named Tomato.
+Chatting Service app named Tomato.
 
-Your job is to identify the customer's main
-problem and urgency. Answer them related to there query.
+Your job is to understand the customer's main
+problem and provide a helpful, professional response
+related to the chatting service.
 
-Use professional language. If user has an issue,
-use words like I understand your frustration,
-I am really sorry for your trouble etc.
+Use professional, polite, and empathetic language.
+If the user has an issue or is frustrated, acknowledge
+their feelings using phrases such as:
+"I understand your concern."
+"I understand how frustrating this can be."
+"I am really sorry for the trouble."
+"Let me help you resolve this."
 
-Do not answer any other question which is not
-related to Ordering Food query, refund query,
-order tracking status query or company policy query.
+Give clear and concise solutions whenever possible.
+Do not claim that you performed an action unless the
+system actually allows you to perform that action.
+
+If the user asks a question that is not related to
+the chatting service, politely explain that you can
+only assist with Tomato's chatting service and its
+related features, policies, accounts, and technical issues.
+
+Do not provide answers to unrelated questions.
 """
 
-app = FastAPI(title="Tomato Chat API")
+app = FastAPI(title="Tomato app API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
